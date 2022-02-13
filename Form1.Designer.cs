@@ -35,14 +35,16 @@ namespace ShipLoader
             this.track_trucks = new System.Windows.Forms.TrackBar();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.label_cycleCount = new System.Windows.Forms.Label();
+            this.label_carCount = new System.Windows.Forms.Label();
+            this.label_truckCount = new System.Windows.Forms.Label();
+            this.label_trainCount = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.label_shipLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.track_trainCars)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.track_cars)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.track_motorCycles)).BeginInit();
@@ -56,6 +58,7 @@ namespace ShipLoader
             this.track_trainCars.Name = "track_trainCars";
             this.track_trainCars.Size = new System.Drawing.Size(268, 45);
             this.track_trainCars.TabIndex = 0;
+            this.track_trainCars.Scroll += new System.EventHandler(this.track_trainCars_Scroll);
             // 
             // track_cars
             // 
@@ -63,6 +66,7 @@ namespace ShipLoader
             this.track_cars.Name = "track_cars";
             this.track_cars.Size = new System.Drawing.Size(268, 45);
             this.track_cars.TabIndex = 1;
+            this.track_cars.Scroll += new System.EventHandler(this.track_cars_Scroll);
             // 
             // track_motorCycles
             // 
@@ -70,6 +74,7 @@ namespace ShipLoader
             this.track_motorCycles.Name = "track_motorCycles";
             this.track_motorCycles.Size = new System.Drawing.Size(268, 45);
             this.track_motorCycles.TabIndex = 2;
+            this.track_motorCycles.Scroll += new System.EventHandler(this.track_motorCycles_Scroll);
             // 
             // track_trucks
             // 
@@ -77,6 +82,7 @@ namespace ShipLoader
             this.track_trucks.Name = "track_trucks";
             this.track_trucks.Size = new System.Drawing.Size(268, 45);
             this.track_trucks.TabIndex = 3;
+            this.track_trucks.Scroll += new System.EventHandler(this.track_trucks_Scroll);
             // 
             // progressBar1
             // 
@@ -95,41 +101,41 @@ namespace ShipLoader
             this.pictureBox1.TabIndex = 5;
             this.pictureBox1.TabStop = false;
             // 
-            // label1
+            // label_cycleCount
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(89, 240);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(38, 15);
-            this.label1.TabIndex = 6;
-            this.label1.Text = "label1";
+            this.label_cycleCount.AutoSize = true;
+            this.label_cycleCount.Location = new System.Drawing.Point(89, 240);
+            this.label_cycleCount.Name = "label_cycleCount";
+            this.label_cycleCount.Size = new System.Drawing.Size(38, 15);
+            this.label_cycleCount.TabIndex = 6;
+            this.label_cycleCount.Text = "label1";
             // 
-            // label2
+            // label_carCount
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(524, 240);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(38, 15);
-            this.label2.TabIndex = 7;
-            this.label2.Text = "label2";
+            this.label_carCount.AutoSize = true;
+            this.label_carCount.Location = new System.Drawing.Point(524, 240);
+            this.label_carCount.Name = "label_carCount";
+            this.label_carCount.Size = new System.Drawing.Size(38, 15);
+            this.label_carCount.TabIndex = 7;
+            this.label_carCount.Text = "label2";
             // 
-            // label3
+            // label_truckCount
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(89, 345);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(38, 15);
-            this.label3.TabIndex = 8;
-            this.label3.Text = "label3";
+            this.label_truckCount.AutoSize = true;
+            this.label_truckCount.Location = new System.Drawing.Point(89, 345);
+            this.label_truckCount.Name = "label_truckCount";
+            this.label_truckCount.Size = new System.Drawing.Size(38, 15);
+            this.label_truckCount.TabIndex = 8;
+            this.label_truckCount.Text = "label3";
             // 
-            // label4
+            // label_trainCount
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(524, 345);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(38, 15);
-            this.label4.TabIndex = 9;
-            this.label4.Text = "label4";
+            this.label_trainCount.AutoSize = true;
+            this.label_trainCount.Location = new System.Drawing.Point(524, 345);
+            this.label_trainCount.Name = "label_trainCount";
+            this.label_trainCount.Size = new System.Drawing.Size(38, 15);
+            this.label_trainCount.TabIndex = 9;
+            this.label_trainCount.Text = "label4";
             // 
             // label5
             // 
@@ -167,19 +173,40 @@ namespace ShipLoader
             this.label8.TabIndex = 13;
             this.label8.Text = "Train Cars (13 units)";
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(8, 415);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 14;
+            this.button1.Text = "New Ship";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // label_shipLabel
+            // 
+            this.label_shipLabel.AutoSize = true;
+            this.label_shipLabel.Location = new System.Drawing.Point(108, 153);
+            this.label_shipLabel.Name = "label_shipLabel";
+            this.label_shipLabel.Size = new System.Drawing.Size(38, 15);
+            this.label_shipLabel.TabIndex = 15;
+            this.label_shipLabel.Text = "label9";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(734, 450);
+            this.Controls.Add(this.label_shipLabel);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.label_trainCount);
+            this.Controls.Add(this.label_truckCount);
+            this.Controls.Add(this.label_carCount);
+            this.Controls.Add(this.label_cycleCount);
             this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.track_trucks);
             this.Controls.Add(this.track_motorCycles);
@@ -206,14 +233,16 @@ namespace ShipLoader
         private System.Windows.Forms.TrackBar track_trucks;
         private System.Windows.Forms.ProgressBar progressBar1;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label_cycleCount;
+        private System.Windows.Forms.Label label_carCount;
+        private System.Windows.Forms.Label label_truckCount;
+        private System.Windows.Forms.Label label_trainCount;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label_shipLabel;
     }
 }
 
