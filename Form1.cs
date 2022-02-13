@@ -86,5 +86,10 @@ namespace ShipLoader
             ship.TrainCarCount = track_trainCars.Value;
             updateUI();
         }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            progressBar1.Style = ProgressBarStyle.Continuous;
+        }
     }
 }

@@ -215,6 +215,7 @@ namespace ShipLoader
             this.Controls.Add(this.pictureBox1);
             this.Name = "Form1";
             this.Text = "Load The Ship";
+            this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.track_trainCars)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.track_cars)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.track_motorCycles)).EndInit();
