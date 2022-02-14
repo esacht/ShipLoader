@@ -21,6 +21,10 @@ namespace ShipLoader
         private void button1_Click(object sender, EventArgs e)
         {
             ship = new Ship();
+            track_cars.Value = 0;
+            track_trucks.Value = 0;
+            track_motorCycles.Value = 0;
+            track_trainCars.Value = 0;
             updateUI();
         }
 
@@ -90,6 +94,7 @@ namespace ShipLoader
         private void Form1_Load(object sender, EventArgs e)
         {
             progressBar1.Style = ProgressBarStyle.Continuous;
+            updateUI();
         }
     }
 }
