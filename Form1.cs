@@ -54,6 +54,13 @@ namespace ShipLoader
             if (ship.overUnder() == 0)
             {
                 progressBar1.ForeColor = Color.Green;
+                string message = "Congratulations you loaded the ship correctly!";
+                string caption = "Winner! Click New Ship for a new game";
+                MessageBoxButtons buttons = MessageBoxButtons.OK;
+                DialogResult result;
+
+                // Displays the MessageBox.
+                result = MessageBox.Show(message, caption, buttons);
             }
 
             if (ship.overUnder() > 0)
